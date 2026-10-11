@@ -83,6 +83,14 @@ AI 将立即按照《实践论》逻辑，先用具体案例带你浸润体感�
 
 ---
 
+## 认知画布模板 (Canvas Templates)
+
+本项目提供两种粒度的认知画布模板：
+- ⚡ **[极简一页画布 (`templates/MINIMAL_CANVAS.md`)](./templates/MINIMAL_CANVAS.md)**：适合 15 分钟快速冷启动，聚焦 3 个硬实体、四维拓扑、致命反例与核心产生式。
+- 📊 **[完整领域认知画布 (`templates/COGNITIVE_CANVAS.md`)](./templates/COGNITIVE_CANVAS.md)**：适合深耕复杂学科，包含成长等级（L1~L5）、红队击穿记录与现实预测误差日记。
+
+---
+
 ## 官方实战范例 (Examples)
 
 不知道画布怎么填？项目中提供了教科书级别的完整范例供你参考：

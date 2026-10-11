@@ -5,17 +5,68 @@
 
 ---
 
-## 为什么需要这套 Skills？
+## 核心架构：心智编译流水线
 
-在 AI 时代，我们学一个新领域的典型困境是：
-1. **直接要框架**：让 AI 列入门全景图，AI 5 秒钟给出完美清单。
-2. **以为掌握了**：看着逻辑整齐的词条，产生“我已经懂了”的流畅性错觉。
-3. **遇到现实一片空白**：几天后真要做判断时，脑子依然一片茫然。
+```mermaid
+flowchart TD
+    A["Raw Material<br>真实素材与案例"] -->|01-ontology-extraction| B["Primitive Entities<br>3~5个不可简化实体"]
+    B -->|02-relational-topology| C["Relational Network<br>四维拓扑网络"]
+    C -->|03-falsification-probing| D["Falsified Boundary<br>红队反例标定有效边界"]
+    D -->|04-procedural-sparring| E["Compiled Intuition<br>程序性直觉 (IF-THEN)"]
+    E -->|06-progress-tracker| F["Cognitive Canvas<br>动态演化的个人心智资产"]
 
-认知心理学对此有着极深刻的机理解释：
-- **AI 给予的只是“陈述性知识（Declarative Knowledge）”**，而解决复杂问题靠的是**心理模型（Mental Models - Johnson-Laird）**与**程序性直觉（Procedural Knowledge - ACT-R）**。
-- **孤立的名词没有力量**：大脑记忆是高维语义网络（Collins & Loftus 激活扩散理论），决定顿悟和反应速度的是概念之间连接线的导电性与格栅结构（Latticework）。
-- **进度必须可视化沉淀**：真正的学习需要持续的反馈与闭环，缺少可追踪的认知画布，探索很容易在半途迷失。
+    subgraph 四维拓扑连线
+        C1["层级锚定 (向上找根)"]
+        C2["同构映射 (跨界借脑)"]
+        C3["拮抗对偶 (买解毒剂)"]
+        C4["因果回路 (跑通闭环)"]
+    end
+    C -.-> C1 & C2 & C3 & C4
+```
+
+---
+
+## 快捷指令系统 (Slash Commands)
+
+如果你在 **Cursor / Windsurf / Claude Code** 中使用本项目，只需输入以下指令即可瞬间唤醒对应能力的 AI 陪练导师：
+
+| 指令 | 阶段 | 导师行为与认知目标 |
+| :--- | :--- | :--- |
+| **`/start <领域>`** | 阶段 1：素材与本体 | 先给 3 个极端争议案例，再提炼底层 3~5 个不可简化硬实体并定义边界 |
+| **`/link`** | 阶段 2：四维网络拓扑 | 引导建立：向上锚定父节点、跨界同构映射、拮抗对偶平衡项、动力因果回路 |
+| **`/redteam`** 或 **`/roast`** | 阶段 3：红队反例打靶 | 针对当前模型无情找茬，列出 3 个真实反例击碎脆弱假想，标定失效禁区 |
+| **`/spar`** | 阶段 4：两难对抗沙盒 | 抛出无选项、无提示的真实一线灰度死局，强迫决断，无情剖析代偿代价 |
+| **`/audit`** | 阶段 5：画布进度审计 | 诊断《领域认知画布》当前成熟度（L1~L5），指出盲区并定制 3 天冲刺清单 |
+
+---
+
+## 3 分钟极速上手
+
+### 步骤 1：一键初始化你的领域工作区
+本项目内置纯 Python 零依赖初始化脚本，一行命令即可生成完整的独立学习沙盒：
+
+```bash
+# 进入仓库目录
+python scripts/init_domain.py "分布式系统" "解决微服务容灾与数据一致性难题"
+```
+
+脚本将自动在 `domains/` 下生成专属工作目录与预置文档：
+- `domains/分布式系统/CANVAS.md`（你的领域认知画布主档案）
+- `domains/分布式系统/01_materials_and_entities.md`
+- `domains/分布式系统/02_relational_topology.md`
+- `domains/分布式系统/03_falsification_probing.md`
+- `domains/分布式系统/04_sparring_and_decisions.md`
+
+### 步骤 2：启动 AI 对练
+打开 Cursor、Claude Code 或 ChatGPT 对话框，输入：
+```text
+/start 分布式系统
+```
+AI 将立即按照《实践论》逻辑，先用具体案例带你浸润体感，随后抽离核心本体。
+
+### 步骤 3：持续沉淀至认知画布
+将每一阶段对练生成的实体、拓扑、反例与产生式沉淀在 `CANVAS.md` 中。  
+学习几天后，随时输入 `/audit`，让 AI 对你的画布进行成熟度健康度审计。
 
 ---
 
@@ -32,43 +83,26 @@
 
 ---
 
-## 从零吃透一个新领域的 14 天完整落地方案
+## 官方实战范例 (Examples)
 
-配合本项目提供的 [《领域认知画布模板 (COGNITIVE_CANVAS.md)》](./templates/COGNITIVE_CANVAS.md)，建议按以下 5 个阶段推进：
+不知道画布怎么填？项目中提供了教科书级别的完整范例供你参考：
 
-```
-[Day 1~2: 感性浸润] ──► [Day 3~4: 实体抽取] ──► [Day 5~7: 拓扑编织] ──► [Day 8~10: 红队打靶] ──► [Day 11~14+: 对抗对练与现实褪除]
-  (找5个极端案例)       (抽3-5个硬实体)       (四维连线通电)        (寻找3个致命反例)        (沙盒两难抉择 & 记录预测误差)
-```
-
-1. **Phase 1: 感性浸润（Day 1~2）**：别急着要大纲。让 AI 讲 5 个行业最极端的争议与案例，在真实泥土里打滚。
-2. **Phase 2: 实体提炼（Day 3~4）**：运行 `01-ontology-extraction`，在纸上画下最初 3~5 个零件。
-3. **Phase 3: 拓扑编织（Day 5~7）**：运行 `02-relational-topology`，向上找父节点、横向跨界借脑、寻找制约死对头、跑通因果闭环。
-4. **Phase 4: 红队打靶（Day 8~10）**：运行 `03-falsification-probing`，让 AI 抛出极端反例，标定失效禁区。
-5. **Phase 5: 对抗编译与现实褪除（Day 11~14+）**：运行 `04-procedural-sparring` 跑通 3 个灰度实战情境；随后拆除 AI 脚手架，在现实工作中用认知画布记录“预测误差”。
+- 📘 [**认知心理学完整实战认知画布** (`examples/cognitive-psychology/CANVAS.md`)](./examples/cognitive-psychology/CANVAS.md)：
+  - **4 大硬实体**：注意（带宽）、工作记忆（RAM）、图式（SSD索引）、产生式（IF-THEN）
+  - **操作系统同构**：注意力=CPU时间片调度，焦虑=内存泄漏
+  - **红队反例**：看不见的大猩猩（不注意视盲）、白熊实验（认知压抑反弹）
+  - **两难沙盒实战**：战略投资汇报现场系统死锁与 CEO 公开批评的高压应对心智推演
 
 ---
 
-## 快速使用指引
+## 认知哲学基石
 
-### 方式一：配合认知画布在本地维护
-1. 复制 [`templates/COGNITIVE_CANVAS.md`](./templates/COGNITIVE_CANVAS.md) 到你的工作目录，重命名为你的目标领域（如 `RUST_ASYNC_CANVAS.md`）。
-2. 调用对应技能的 Prompt 模板与 AI 对话，将提炼出的实体、拓扑、反例和产生式持续沉淀在画布中。
-3. 每隔几天，调用 `06-progress-tracker` 让 AI 审计当前画布的成熟度与盲区。
-
-### 方式二：在 Cursor / Windsurf 中使用
-将本仓库的 `skills/` 目录复制到项目的 `.cursor/skills/` 或 `.cursor/rules/` 中，并在提问时直接召唤：
-- `@01-ontology-extraction 帮我抽取该领域的底层硬实体`
-- `@02-relational-topology 帮我建立知识网络与对偶张力`
-- `@03-falsification-probing 对我的模型寻找极端反例`
-- `@04-procedural-sparring 开启两难实战考官对练`
-- `@06-progress-tracker 审计我当前的认知画布并指出盲区`
-
-### 方式三：在 Codex / Antigravity / Claude Code 中使用
-本仓库遵循标准 Agent Skill 规范（包含 YAML frontmatter 与 Markdown 工作流），可直接由智能体通过 `view_file` 或 `use_skill` 动态激活。
+> “理性认识是一棵树，它必须扎根在感性认识的土壤里才能活。” —— 毛泽东《实践论》  
+> “你的知识如果只是孤立的散点，你根本无法使用它们；你必须把经验悬挂在由多个模型组成的格栅网络上。” —— 查理·芒格  
+> “认识是一切改变的开始。而真实的认识，是无法外包的。”
 
 ---
 
 ## 开源协议
 
-本项目采用 [MIT License](./LICENSE) 开源协议。欢迎 Star、Fork 与提交 PR 分享你在各个领域的实战认知画布！
+本项目采用 [MIT License](./LICENSE) 开源协议。欢迎 Star、Fork 与提交 PR 分享你在各个技术/商业/认知领域的实战认知画布！
